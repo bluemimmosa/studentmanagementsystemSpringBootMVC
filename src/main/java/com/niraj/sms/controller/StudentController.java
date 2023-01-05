@@ -59,6 +59,7 @@ public class StudentController {
         return "edit_student";
     }
     
+    //handler method to actually save the updated form data.
     @PostMapping("/students/{id}")
     public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student, Model model){
         //get student from database by id
@@ -72,4 +73,12 @@ public class StudentController {
         studentService.updateStudent(existingStudent);
         return "redirect:/students";
     }
+    
+    //handler method to handle delete student request.
+    @GetMapping("/students/{id}")
+    public String deleteStudent(@PathVariable Long id){
+        studentService.deleteStudentById(id);
+        return "redirect:/students";
+    }
+    
 }
