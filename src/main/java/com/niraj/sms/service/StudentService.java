@@ -15,4 +15,5 @@ import java.util.List;
 public interface StudentService {
     
     List<Student> getAllStudent();
+    Student saveStudent(Student student);
 }
